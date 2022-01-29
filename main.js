@@ -14,45 +14,50 @@ document.addEventListener('DOMContentLoaded', () => {
       createNewBanner(bannersList, item.redirectUrl, item.imgUrl);
     });
   }
-
-  console.log(localStorage);
 });
-submitBtn.onclick = () => {
-  console.log(1);
-  const imgLink = document.getElementsByClassName('img-link')[0].value;
-  const redirectLink =
-    document.getElementsByClassName('redirect-link')[0].value;
 
-  createNewBanner(bannersList, redirectLink, imgLink);
+submitBtn.onclick = () => {
+  let imgLink = document.getElementsByClassName('img-link')[0];
+  let redirectLink = document.getElementsByClassName('redirect-link')[0];
+
+  createNewBanner(bannersList, redirectLink.value, imgLink.value);
+
+  savedItems.push({
+    imgUrl: imgLink.value,
+    redirectUrl: redirectLink.value,
+  });
+
+  imgLink.value = '';
+  redirectLink.value = '';
 };
 
 saveBtn.onclick = () => {
-  // localStorage.clear();
-
   localStorage.setItem('savedItems', JSON.stringify(savedItems));
 };
 
 clearBtn.onclick = () => {
+  const images = document.getElementsByClassName('single-banner');
   localStorage.clear();
+  // console.log(images);
+  // while (bannersList.lastElementChild) {
+  //   bannersList.removeChild(lastElementChild);
+  // }
 };
 
 function createNewBanner(element_id, redirect_link, banner_img) {
   const imgDiv = document.createElement('div');
-  imgDiv.className = 'single-banner';
+  const imgSource = document.createElement('img');
   const link = document.createElement('a');
+
+  imgDiv.className = 'single-banner';
   link.href = redirect_link;
   link.target = '_blank';
-  const imgSource = document.createElement('img');
   imgSource.src = banner_img;
+
   imgSource.style.height = '320px';
   imgSource.style.width = '320px';
 
   element_id.appendChild(imgDiv);
   imgDiv.appendChild(link);
   link.appendChild(imgSource);
-
-  savedItems.push({
-    imgUrl: banner_img,
-    redirectUrl: redirect_link,
-  });
 }

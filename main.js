@@ -1,13 +1,39 @@
-const BannersList = document.getElementById('banners-list');
+const bannersList = document.getElementById('banners-list');
 const submitBtn = document.getElementById('submit');
+const saveBtn = document.getElementById('save');
+const clearBtn = document.getElementById('clear');
 
+let savedItems = [];
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('savedItems') === null) {
+    savedItems = [];
+  } else {
+    savedItems = JSON.parse(localStorage.getItem('savedItems'));
+    savedItems.map((item) => {
+      createNewBanner(bannersList, item.redirectUrl, item.imgUrl);
+    });
+  }
+
+  console.log(localStorage);
+});
 submitBtn.onclick = () => {
   console.log(1);
   const imgLink = document.getElementsByClassName('img-link')[0].value;
   const redirectLink =
     document.getElementsByClassName('redirect-link')[0].value;
 
-  createNewBanner(BannersList, redirectLink, imgLink);
+  createNewBanner(bannersList, redirectLink, imgLink);
+};
+
+saveBtn.onclick = () => {
+  // localStorage.clear();
+
+  localStorage.setItem('savedItems', JSON.stringify(savedItems));
+};
+
+clearBtn.onclick = () => {
+  localStorage.clear();
 };
 
 function createNewBanner(element_id, redirect_link, banner_img) {
@@ -25,5 +51,8 @@ function createNewBanner(element_id, redirect_link, banner_img) {
   imgDiv.appendChild(link);
   link.appendChild(imgSource);
 
-  console.log(imgDiv);
+  savedItems.push({
+    imgUrl: banner_img,
+    redirectUrl: redirect_link,
+  });
 }

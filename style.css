@@ -1,0 +1,81 @@
+* {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+}
+
+body {
+  background: linear-gradient(45deg, #bdc3c7, #2c3e50);
+  height: 100vh;
+}
+
+.all {
+  display: grid;
+  grid-template-columns: 45vw 40vw;
+}
+.static {
+  margin-left: 10vw;
+  margin-top: 20vh;
+  position: fixed;
+  background: white;
+  padding: 15vh 2vw;
+  border-radius: 20px;
+}
+
+input {
+  width: 20vw;
+  padding-top: 1vh;
+  border: none;
+  border-bottom: 2px solid #1ecd97;
+  font-size: 3vh;
+  text-align: left;
+  background-color: transparent;
+}
+::placeholder {
+  color: black;
+}
+input:focus {
+  outline: none;
+}
+
+#submit {
+  margin-top: 1vh;
+  font-size: 4vh;
+  width: 20vw;
+  border-radius: 40px;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #1ecd97;
+  transition: 0.2s ease;
+}
+
+#submit:hover,
+.btn:hover {
+  background-color: #1ecd97;
+  color: white;
+}
+.btn {
+  margin-top: 1vh;
+  font-size: 3vh;
+  width: 10vw;
+  cursor: pointer;
+
+  border-radius: 40px;
+
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid #1ecd97;
+  transition: 0.3s ease;
+}
+
+#banners-list {
+  display: grid;
+  grid-template-columns: 25vw 25vw;
+  justify-content: center;
+  margin-top: 2vh;
+}
+
+.img-banner {
+  border-radius: 20px;
+  margin-top: 2vh;
+}

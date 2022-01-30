@@ -4,20 +4,23 @@
 }
 
 body {
-  background: linear-gradient(45deg, #bdc3c7, #2c3e50);
-  height: 100vh;
+  background-color: #212122;
+  height: auto;
 }
 
 .all {
   display: grid;
   grid-template-columns: 45vw 40vw;
 }
-.static {
-  margin-left: 10vw;
-  margin-top: 20vh;
+.outside {
+  border-radius: 20px;
+  padding: 50px 35px;
   position: fixed;
-  background: white;
-  padding: 15vh 2vw;
+  margin-left: 6vw;
+  margin-top: 20vh;
+}
+.static {
+  padding: 10vh 2vw;
   border-radius: 20px;
 }
 
@@ -29,9 +32,10 @@ input {
   font-size: 3vh;
   text-align: left;
   background-color: transparent;
+  color: white;
 }
 ::placeholder {
-  color: black;
+  color: white;
 }
 input:focus {
   outline: none;
@@ -42,6 +46,7 @@ input:focus {
   font-size: 4vh;
   width: 20vw;
   border-radius: 40px;
+  color: white;
 
   background-color: transparent;
   cursor: pointer;
@@ -52,13 +57,14 @@ input:focus {
 #submit:hover,
 .btn:hover {
   background-color: #1ecd97;
-  color: white;
+  color: black;
 }
 .btn {
   margin-top: 1vh;
   font-size: 3vh;
   width: 10vw;
   cursor: pointer;
+  color: white;
 
   border-radius: 40px;
 

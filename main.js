@@ -7,7 +7,6 @@ let savedItems = [];
 
 // Check on loading if there are banners saved
 document.addEventListener('DOMContentLoaded', () => {
-  console.log(localStorage);
   if (localStorage.getItem('banners-data') === null) {
     savedItems = [];
   } else {
@@ -43,7 +42,6 @@ saveBtn.onclick = () => {
 clearBtn.onclick = () => {
   const images = document.getElementsByClassName('single-banner');
   localStorage.clear();
-  console.log(images.length);
   const num = images.length;
   for (let i = 0; i < num; i++) {
     images[0].remove();

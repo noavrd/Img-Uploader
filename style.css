@@ -77,7 +77,8 @@ input:focus {
 
 #banners-list {
   display: grid;
-  grid-template-columns: 25vw 25vw;
+  grid-template-columns: 22.5vw 22.5vw;
+  grid-column-gap: 5vw;
   justify-content: center;
   margin-top: 2vh;
 }
